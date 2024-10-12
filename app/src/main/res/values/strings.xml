@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sistema1234</string>
+    <string name="title_activity_begin">BeginActivity</string>
+    <string name="title_activity_terms_and_conditions">TermsAndConditionsActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_suppliers">SuppliersActivity</string>
+    <string name="title_activity_employees">EmployeesActivity</string>
+    <string name="title_activity_shop">ShopActivity</string>
+    <string name="title_activity_clients">ClientsActivity</string>
+    <string name="title_activity_directors">DirectorsActivity</string>
+    <string name="title_activity_products">ProductsActivity</string>
+    <string name="title_activity_product_details">ProductDetailsActivity</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_directors_insert">DirectorsInsertActivity</string>
+    <string name="title_activity_directors_update">DirectorsUpdateActivity</string>
+</resources>

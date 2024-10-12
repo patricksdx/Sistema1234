@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/ic_laucher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_laucher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Sistema1234"
+        tools:targetApi="31">
+        <activity
+            android:name=".view.labelCard.directors.DirectorsUpdateActivity"
+            android:exported="false"
+            android:label="@string/title_activity_directors_update"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.labelCard.directors.DirectorsInsertActivity"
+            android:exported="false"
+            android:label="@string/title_activity_directors_insert"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.labelCard.shop.ProductDetailsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_product_details"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.labelCard.shop.ProductsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_products"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.labelCard.directors.DirectorsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_directors"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.labelCard.clients.ClientsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_clients"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.labelCard.shop.ShopActivity"
+            android:exported="false"
+            android:label="@string/title_activity_shop"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.labelCard.employees.EmployeesActivity"
+            android:exported="false"
+            android:label="@string/title_activity_employees"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.labelCard.suppliers.SuppliersActivity"
+            android:exported="false"
+            android:label="@string/title_activity_suppliers"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.HomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.TermsAndConditionsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_terms_and_conditions"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.BeginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_begin"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.SplashActivity"
+            android:exported="true"
+            android:label="Aplicacion1234"
+            android:theme="@style/Theme.Sistema1234">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
