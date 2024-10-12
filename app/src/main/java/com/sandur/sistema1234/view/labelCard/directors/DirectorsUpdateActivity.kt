@@ -77,7 +77,7 @@ class DirectorsUpdateActivity : ComponentActivity() {
                         Button(onClick = {
                             updateDirector(iddirector, nombres, peliculas)
                         }) {
-                            Text(text = "Registrar")
+                            Text(text = "Actualizar")
                         }
                     }
                 }
