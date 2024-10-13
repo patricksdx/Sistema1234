@@ -6,23 +6,24 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -39,6 +40,8 @@ import com.sandur.sistema1234.R
 import com.sandur.sistema1234.model.Supplier
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
 import com.sandur.sistema1234.view.components.headerImage
+import compose.icons.LineAwesomeIcons
+import compose.icons.lineawesomeicons.ArrowLeftSolid
 import kotlinx.coroutines.delay
 import org.json.JSONArray
 
@@ -62,7 +65,17 @@ class SuppliersActivity : ComponentActivity() {
                 Scaffold(
                     topBar = {
                         TopAppBar(
-                            title = { Text(text = "Proveedores") }
+                            title = { Text(text = "Proveedores") },
+                            navigationIcon = {
+                                IconButton(onClick = {finish()}) {
+                                    Icon(
+                                        imageVector = LineAwesomeIcons.ArrowLeftSolid,
+                                        modifier = Modifier
+                                            .size(24.dp),
+                                        contentDescription = ""
+                                    )
+                                }
+                            }
                         )
                     }
                 ) { innerPadding ->

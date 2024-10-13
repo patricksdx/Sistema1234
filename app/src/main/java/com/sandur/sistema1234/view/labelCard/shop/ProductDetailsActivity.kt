@@ -8,7 +8,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -21,12 +24,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.model.ProductDetails
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
 import com.sandur.sistema1234.view.components.DrawProductDetails
+import compose.icons.LineAwesomeIcons
+import compose.icons.lineawesomeicons.ArrowLeftSolid
 import kotlinx.coroutines.delay
 import org.json.JSONArray
 
@@ -56,7 +62,17 @@ class ProductDetailsActivity : ComponentActivity() {
                 Scaffold(
                     topBar = {
                         TopAppBar(
-                            title = { Text(text = nombre.orEmpty()) }
+                            title = { Text(text = nombre.orEmpty()) },
+                            navigationIcon = {
+                                IconButton(onClick = {finish()}) {
+                                    Icon(
+                                        imageVector = LineAwesomeIcons.ArrowLeftSolid,
+                                        modifier = Modifier
+                                            .size(24.dp),
+                                        contentDescription = ""
+                                    )
+                                }
+                            }
                         )
                     }
                 ) { paddingValues ->

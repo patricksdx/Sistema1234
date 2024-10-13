@@ -9,10 +9,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -30,6 +33,8 @@ import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.model.Product
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
 import com.sandur.sistema1234.view.components.DrawProductItem
+import compose.icons.LineAwesomeIcons
+import compose.icons.lineawesomeicons.ArrowLeftSolid
 import kotlinx.coroutines.delay
 import org.json.JSONArray
 
@@ -59,7 +64,17 @@ class ProductsActivity : ComponentActivity() {
                 Scaffold(
                     topBar = {
                         TopAppBar(
-                            title = { Text(text = nombreCategoria.orEmpty()) }
+                            title = { Text(text = nombreCategoria.orEmpty()) },
+                            navigationIcon = {
+                                IconButton(onClick = {finish()}) {
+                                    Icon(
+                                        imageVector = LineAwesomeIcons.ArrowLeftSolid,
+                                        modifier = Modifier
+                                            .size(24.dp),
+                                        contentDescription = ""
+                                    )
+                                }
+                            }
                         )
                     }
                 ) { paddingValues ->
@@ -130,9 +145,9 @@ class ProductsActivity : ComponentActivity() {
             val producto = Product(
                 idproducto = jsonObject.getString("idproducto"),
                 nombre = jsonObject.getString("nombre"),
-                precio = jsonObject.getString("precio"),
+                precio = jsonObject.getDouble("precio"),
                 imagen = jsonObject.getString("imagenchica"),
-                precioRebajado = jsonObject.optString("preciorebajado", null)
+                precioRebajado = jsonObject.optDouble("preciorebajado")
             )
             productList.add(producto)
         }

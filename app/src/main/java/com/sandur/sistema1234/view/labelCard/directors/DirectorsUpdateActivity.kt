@@ -12,9 +12,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -30,6 +32,8 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
+import compose.icons.LineAwesomeIcons
+import compose.icons.lineawesomeicons.ArrowLeftSolid
 
 class DirectorsUpdateActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -44,7 +48,7 @@ class DirectorsUpdateActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
-            var iddirector by remember { mutableStateOf(iddirector.toString()) }
+            val iddirector by remember { mutableStateOf(iddirector.toString()) }
             var nombres by remember { mutableStateOf(nombres.toString()) }
             var peliculas by remember { mutableStateOf(peliculas.toString()) }
 
@@ -52,7 +56,17 @@ class DirectorsUpdateActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize(),
                     topBar = {
                         TopAppBar(
-                            title = { Text(text = "Actualizar Director") }
+                            title = { Text(text = "Actualizar Director") },
+                            navigationIcon = {
+                                IconButton(onClick = {finish()}) {
+                                    Icon(
+                                        imageVector = LineAwesomeIcons.ArrowLeftSolid,
+                                        modifier = Modifier
+                                            .size(24.dp),
+                                        contentDescription = ""
+                                    )
+                                }
+                            }
                         )
                     }) { innerPadding ->
                     Column (
@@ -91,7 +105,7 @@ class DirectorsUpdateActivity : ComponentActivity() {
         val url = "https://servicios.campus.pe/directoresupdate.php"
 
         val stringRequest = object: StringRequest(
-            Request.Method.POST, url,
+            Method.POST, url,
             { response ->
                 Log.d("VOLLEY", response)
                 startActivity(Intent(this, DirectorsActivity::class.java))
