@@ -19,13 +19,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.sandur.sistema1234.model.ProductDetails
+import java.text.DecimalFormat
 
 @Composable
 fun DrawProductDetails(item: ProductDetails) {
+
+    val decimalFormat = DecimalFormat("#,##0.00")
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -52,16 +57,27 @@ fun DrawProductDetails(item: ProductDetails) {
         }
         Spacer(modifier = Modifier.height(16.dp))
         // Precio
-        if (item.preciorebajado.isNotEmpty() && item.preciorebajado != "0") {
+        if (item.preciorebajado.toInt() != 0) {
             Text(
-                text = "Precio Rebajado: S/${item.preciorebajado}",
+                text = "En oferta!",
+                style = MaterialTheme.typography.bodyMedium,
+                fontSize = 22.sp,
+            )
+            Text(
+                text = "Precio:  " + "S/${decimalFormat.format(item.precio)}",
+                style = MaterialTheme.typography.bodyMedium.copy(textDecoration = TextDecoration.LineThrough),
+                fontSize = 20.sp,
+                color = MaterialTheme.colorScheme.primary
+            )
+            Text(
+                text = "Precio Rebajado:  S/${decimalFormat.format(item.preciorebajado)}",
                 style = MaterialTheme.typography.bodyMedium,
                 fontSize = 24.sp,
                 color = MaterialTheme.colorScheme.secondary
             )
         } else {
             Text(
-                text = "Precio: S/${item.precio}",
+                text = "Precio:  S/${decimalFormat.format(item.precio)}",
                 style = MaterialTheme.typography.bodyMedium,
                 fontSize = 24.sp,
                 color = MaterialTheme.colorScheme.primary
