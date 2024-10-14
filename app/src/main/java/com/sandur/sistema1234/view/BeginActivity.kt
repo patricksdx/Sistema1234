@@ -25,7 +25,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import com.sandur.sistema1234.R
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
-import com.sandur.sistema1234.view.components.headerImage
+import com.sandur.sistema1234.view.components.HeaderImage
 
 class BeginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +46,7 @@ class BeginActivity : ComponentActivity() {
                             Box(modifier = Modifier
                                 .fillMaxSize()
                                 .background(Color.Black.copy(alpha = 0.5f)))
-                            headerImage(R.drawable.begin_image, "Mujer Comprando", "Comenzar")
+                            HeaderImage(R.drawable.begin_image, "Mujer Comprando", "Comenzar")
                         }
                         Column(
                             modifier = Modifier

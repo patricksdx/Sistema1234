@@ -40,7 +40,7 @@ fun DirectorCard(director: Director) {
                 .padding(15.dp)
         ) {
             Text(text = "ID: ${director.iddirector}")
-            Text(text = "${director.nombres}", style = MaterialTheme.typography.titleLarge)
+            Text(text = director.nombres, style = MaterialTheme.typography.titleLarge)
             Text(text = "Películas: ${director.peliculas}")
         }
     }

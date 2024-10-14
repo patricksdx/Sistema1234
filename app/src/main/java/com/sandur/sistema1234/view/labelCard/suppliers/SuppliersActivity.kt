@@ -39,7 +39,7 @@ import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.R
 import com.sandur.sistema1234.model.Supplier
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
-import com.sandur.sistema1234.view.components.headerImage
+import com.sandur.sistema1234.view.components.HeaderImage
 import compose.icons.LineAwesomeIcons
 import compose.icons.lineawesomeicons.ArrowLeftSolid
 import kotlinx.coroutines.delay
@@ -92,7 +92,7 @@ class SuppliersActivity : ComponentActivity() {
                                     .fillMaxSize()
                                     .background(Color.Black.copy(alpha = 0.5f))
                             )
-                            headerImage(R.drawable.proveedores, "Mujer Comprando", "")
+                            HeaderImage(R.drawable.proveedores, "Mujer Comprando", "")
                         }
                         Column(
                             modifier = Modifier

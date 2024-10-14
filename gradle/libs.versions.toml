@@ -1,5 +1,5 @@
 [versions]
-agp = "8.5.0"
+agp = "8.5.2"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -7,14 +7,15 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.6"
 activityCompose = "1.9.2"
-composeBom = "2024.04.01"
+composeBom = "2024.09.03"
 uiTextGoogleFonts = "1.7.3"
 
-composeIcons = "1.1.0"
+datastorePreferences = "1.1.1"
+composeIcons = "1.1.1"
 coilCompose = "2.6.0"
 volley = "1.2.1"
-toolsCore = "1.0.0-alpha09"
-modelCompose = "2.6.0"
+toolsCore = "1.0.0-alpha10"
+modelCompose = "2.8.6"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,6 +39,7 @@ coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose"
 androidx-tools-core = { group = "androidx.privacysandbox.tools", name = "tools-core", version.ref = "toolsCore" }
 volley = { module = "com.android.volley:volley", version.ref = "volley" }
 view-model-compose = {module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "modelCompose"}
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

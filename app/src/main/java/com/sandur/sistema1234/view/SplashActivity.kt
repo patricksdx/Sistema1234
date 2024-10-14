@@ -27,9 +27,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.lifecycleScope
 import com.sandur.sistema1234.R
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
+import com.sandur.sistema1234.utils.UserStore
+import com.sandur.sistema1234.view.labelCard.user.ProfileActivity
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 class SplashActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -55,7 +60,16 @@ class SplashActivity : ComponentActivity() {
                 LaunchedEffect(key1 = true) {
                     startAnimation = true
                     delay(4000)
-                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                    lifecycleScope.launch {
+                        val userStore = UserStore(this@SplashActivity)
+                        val user = userStore.geUser.first()
+
+                        if (user != ""){
+                            startActivity(Intent(this@SplashActivity, ProfileActivity::class.java))
+                        } else {
+                            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                        }
+                    }
                 }
 
                 Scaffold(

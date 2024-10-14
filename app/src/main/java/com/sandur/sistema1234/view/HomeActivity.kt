@@ -18,9 +18,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.Modifier
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
 import com.sandur.sistema1234.view.components.EtiquetaCard
-import com.sandur.sistema1234.view.labelCard.clients.ClientsActivity
 import com.sandur.sistema1234.view.labelCard.directors.DirectorsActivity
 import com.sandur.sistema1234.view.labelCard.employees.EmployeesActivity
+import com.sandur.sistema1234.view.labelCard.login.LoginActivity
 import com.sandur.sistema1234.view.labelCard.shop.ShopActivity
 import com.sandur.sistema1234.view.labelCard.suppliers.SuppliersActivity
 import compose.icons.LineAwesomeIcons
@@ -67,7 +67,6 @@ class HomeActivity : ComponentActivity() {
                             ) {
                                 items(etiquetas.size) { index ->
                                     EtiquetaCard(
-                                        index = index,
                                         etiqueta = etiquetas[index],
                                         icono = iconos[index],
                                         onClick = { mostrarVentana(index) }
@@ -87,7 +86,7 @@ class HomeActivity : ComponentActivity() {
             0 -> startActivity(Intent(this, SuppliersActivity::class.java))
             1 -> startActivity(Intent(this, EmployeesActivity::class.java))
             2 -> startActivity(Intent(this, ShopActivity::class.java))
-            3 -> startActivity(Intent(this, ClientsActivity::class.java))
+            3 -> startActivity(Intent(this, LoginActivity::class.java))
             4 -> startActivity(Intent(this, DirectorsActivity::class.java))
             else -> finish()
         }

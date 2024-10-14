@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.sandur.sistema1234.R
 
 @Composable
-fun headerImage(drawableResource: Int, descriptionResources: String, titleResources: String) {
+fun HeaderImage(drawableResource: Int, descriptionResources: String, titleResources: String) {
     Box(
         contentAlignment = Alignment.BottomEnd,
         modifier = Modifier

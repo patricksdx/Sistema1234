@@ -32,6 +32,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.model.ProductCategory
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
+import com.sandur.sistema1234.utils.Url
 import com.sandur.sistema1234.view.components.DrawCategory
 import compose.icons.LineAwesomeIcons
 import compose.icons.lineawesomeicons.ArrowLeftSolid
@@ -114,7 +115,7 @@ class ShopActivity : ComponentActivity() {
         errorMessage: MutableState<String?>
     ) {
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/categorias.php"
+        val url = Url.BASE_URL+"categorias.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -139,24 +140,20 @@ class ShopActivity : ComponentActivity() {
 
         for (i in 0 until jsonArray.length()) {
             val jsonObject = jsonArray.getJSONObject(i)
-            val idcategoria = jsonObject.optString("idcategoria", null)
+            val idcategoria = jsonObject.optString("idcategoria")
             val nombre = jsonObject.optString("nombre", "N/A")
             val descripcion = jsonObject.optString("descripcion", "N/A")
             val total = jsonObject.optString("total", "0")
             val foto = jsonObject.optString("foto", "")
 
-            if (idcategoria != null) {
-                val categoria = ProductCategory(
-                    idcategoria = idcategoria,
-                    nombre = nombre,
-                    descripcion = descripcion,
-                    total = total,
-                    foto = foto
-                )
-                categories.add(categoria)
-            } else {
-                Log.e("ShopActivity", "Falta idcategoria para la categoría en el índice $i")
-            }
+            val categoria = ProductCategory(
+                idcategoria = idcategoria,
+                nombre = nombre,
+                descripcion = descripcion,
+                total = total,
+                foto = foto
+            )
+            categories.add(categoria)
         }
         return categories
     }

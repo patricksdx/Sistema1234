@@ -15,6 +15,16 @@
         android:theme="@style/Theme.Sistema1234"
         tools:targetApi="31">
         <activity
+            android:name=".view.labelCard.user.ProfileActivity"
+            android:exported="false"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
+            android:name=".view.labelCard.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.Sistema1234" />
+        <activity
             android:name=".view.labelCard.directors.DirectorsUpdateActivity"
             android:exported="false"
             android:label="@string/title_activity_directors_update"
@@ -77,7 +87,6 @@
         <activity
             android:name=".view.MainActivity"
             android:exported="false"
-            android:label="@string/app_name"
             android:theme="@style/Theme.Sistema1234" />
         <activity
             android:name=".view.SplashActivity"

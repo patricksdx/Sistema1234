@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.sandur.sistema1234.R
 
 @Composable
-fun EtiquetaCard(index: Int, etiqueta: String, icono: ImageVector, onClick: () -> Unit) {
+fun EtiquetaCard(etiqueta: String, icono: ImageVector, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
