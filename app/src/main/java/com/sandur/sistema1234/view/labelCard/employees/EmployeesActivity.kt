@@ -31,6 +31,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.model.Employee
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
+import com.sandur.sistema1234.utils.Url
 import com.sandur.sistema1234.view.components.EmployeeCard
 import compose.icons.LineAwesomeIcons
 import compose.icons.lineawesomeicons.ArrowLeftSolid
@@ -114,7 +115,7 @@ class EmployeesActivity : ComponentActivity() {
         errorMessage: MutableState<String?>
     ) {
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/empleados.php"
+        val url = Url.BASE_URL + "empleados.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

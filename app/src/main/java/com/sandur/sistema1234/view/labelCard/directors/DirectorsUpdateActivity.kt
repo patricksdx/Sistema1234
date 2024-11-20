@@ -3,13 +3,16 @@ package com.sandur.sistema1234.view.labelCard.directors
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -31,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
+import com.sandur.sistema1234.utils.Url
 import compose.icons.LineAwesomeIcons
 import compose.icons.lineawesomeicons.ArrowLeftSolid
 
@@ -93,11 +97,24 @@ class DirectorsUpdateActivity : ComponentActivity() {
                             label = { Text("Peliculas") }
                         )
                         Spacer(modifier = Modifier.height(16.dp))
-                        Button(onClick = {
-                            updateDirector(iddirector, nombres, peliculas)
-                        }) {
-                            Text(text = "Actualizar")
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 40.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Button(onClick = {
+                                updateDirector(iddirector, nombres, peliculas)
+                            }) {
+                                Text(text = "Actualizar")
+                            }
+                            Button(onClick = {
+                                deleteDirector(iddirector)
+                            }) {
+                                Text(text = "Eliminar Director")
+                            }
                         }
+
                     }
                 }
             }
@@ -107,12 +124,13 @@ class DirectorsUpdateActivity : ComponentActivity() {
     private fun updateDirector(iddirector: String, nombres: String, peliculas: String) {
         Log.d("VOLLEY", nombres + " - " + peliculas)
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/directoresupdate.php"
+        val url = Url.BASE_URL + "directoresupdate.php"
 
         val stringRequest = object: StringRequest(
             Method.POST, url,
             { response ->
                 Log.d("VOLLEY", response)
+                Toast.makeText(this, "El Director se actualizo correctamente", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, DirectorsActivity::class.java))
             },{
                 Log.e("VOLLEY", "Error occurred", it)
@@ -122,6 +140,29 @@ class DirectorsUpdateActivity : ComponentActivity() {
                 params["iddirector"] = iddirector
                 params["nombres"] = nombres
                 params["peliculas"] = peliculas
+                return params
+            }
+        }
+        queue.add(stringRequest)
+    }
+
+    private fun deleteDirector(iddirector: String ) {
+        Log.d("VOLLEY", iddirector)
+        val queue = Volley.newRequestQueue(this)
+        val url = Url.BASE_URL + "directoresdelete.php"
+
+        val stringRequest = object: StringRequest(
+            Method.POST, url,
+            { response ->
+                Log.d("VOLLEY", response)
+                Toast.makeText(this, "El Director se elimino correctamente", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, DirectorsActivity::class.java))
+            },{
+                Log.e("VOLLEY", "Error occurred", it)
+            }) {
+            override fun getParams(): MutableMap<String, String> {
+                val params = HashMap<String, String>()
+                params["iddirector"] = iddirector
                 return params
             }
         }

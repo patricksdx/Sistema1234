@@ -32,6 +32,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.model.Product
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
+import com.sandur.sistema1234.utils.Url
 import com.sandur.sistema1234.view.components.DrawProductItem
 import compose.icons.LineAwesomeIcons
 import compose.icons.lineawesomeicons.ArrowLeftSolid
@@ -119,7 +120,7 @@ class ProductsActivity : ComponentActivity() {
         errorMessage: MutableState<String?>
     ) {
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/productos.php?idcategoria=$idCategoria"
+        val url = Url.BASE_URL + "productos.php?idcategoria=$idCategoria"
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->

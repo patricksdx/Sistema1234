@@ -15,6 +15,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -24,7 +25,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
@@ -70,19 +70,21 @@ class ProfileActivity : ComponentActivity() {
                 if (showAlertDialog) {
                     AlertDialog(
                         onDismissRequest = { showAlertDialog = false },
-                        title = { Text(text = "Cerrar Sesión") },
-                        text = {
-                            Text(
-                                modifier = Modifier.padding(horizontal = 30.dp),
-                                text = "¿Desea cerrar sesión?",
-                                textAlign = TextAlign.Center
-                            )
-                        },
                         icon = {
                             Icon(
                                 imageVector = LineAwesomeIcons.WindowCloseSolid,
                                 modifier = Modifier.size(24.dp),
                                 contentDescription = "Cerrar"
+                            )
+                        },
+                        title = {
+                            Text(
+                                text = "Cerrar Sesión",
+                                style = MaterialTheme.typography.titleLarge
+                            )},
+                        text = {
+                            Text(
+                                text = "¿Desea cerrar sesión?",
                             )
                         },
                         confirmButton = {

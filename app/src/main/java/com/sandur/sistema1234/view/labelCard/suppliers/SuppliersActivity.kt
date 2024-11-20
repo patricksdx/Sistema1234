@@ -39,6 +39,7 @@ import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.R
 import com.sandur.sistema1234.model.Supplier
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
+import com.sandur.sistema1234.utils.Url
 import com.sandur.sistema1234.view.components.HeaderImage
 import compose.icons.LineAwesomeIcons
 import compose.icons.lineawesomeicons.ArrowLeftSolid
@@ -149,7 +150,7 @@ class SuppliersActivity : ComponentActivity() {
         errorMessage: MutableState<String?>
     ) {
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/proveedores.php"
+        val url = Url.BASE_URL+ "proveedores.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

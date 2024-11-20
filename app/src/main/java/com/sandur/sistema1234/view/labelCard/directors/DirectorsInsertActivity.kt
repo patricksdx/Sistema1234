@@ -32,6 +32,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
+import com.sandur.sistema1234.utils.Url
 import compose.icons.LineAwesomeIcons
 import compose.icons.lineawesomeicons.ArrowLeftSolid
 
@@ -92,7 +93,7 @@ class DirectorsInsertActivity : ComponentActivity() {
     private fun insertDirector(nombres: String, peliculas: String) {
         Log.d("VOLLEY", nombres + " - " + peliculas)
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/directoresinsert.php"
+        val url = Url.BASE_URL + "directoresinsert.php"
 
         val stringRequest = object: StringRequest(
             Request.Method.POST, url,

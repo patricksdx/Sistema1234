@@ -115,7 +115,7 @@ class ShopActivity : ComponentActivity() {
         errorMessage: MutableState<String?>
     ) {
         val queue = Volley.newRequestQueue(this)
-        val url = Url.BASE_URL+"categorias.php"
+        val url = Url.BASE_URL + "categorias.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

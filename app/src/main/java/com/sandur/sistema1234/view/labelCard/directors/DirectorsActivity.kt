@@ -40,6 +40,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.R
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
+import com.sandur.sistema1234.utils.Url
 import com.sandur.sistema1234.view.components.DirectorCard
 import com.sandur.sistema1234.view.components.HeaderImage
 import compose.icons.LineAwesomeIcons
@@ -146,7 +147,7 @@ class DirectorsActivity : ComponentActivity() {
         errorMessage: MutableState<String?>
     ) {
         val queue = Volley.newRequestQueue(this)
-        val url = "https://servicios.campus.pe/directores.php"
+        val url = Url.BASE_URL + "directores.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

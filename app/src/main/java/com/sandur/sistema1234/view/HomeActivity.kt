@@ -36,7 +36,7 @@ class HomeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val etiquetas = arrayOf("Proveedores", "Empleados", "Tienda","Clientes","Directores","Salir")
+        val etiquetas = arrayOf("Proveedores", "Empleados", "Tienda","Login","Directores","Salir")
         val iconos = arrayOf(
             LineAwesomeIcons.AddressBook,
             LineAwesomeIcons.UserAltSolid,
