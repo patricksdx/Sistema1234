@@ -28,7 +28,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.sandur.sistema1234.ui.theme.Sistema1234Theme
@@ -96,7 +95,7 @@ class DirectorsInsertActivity : ComponentActivity() {
         val url = Url.BASE_URL + "directoresinsert.php"
 
         val stringRequest = object: StringRequest(
-            Request.Method.POST, url,
+            Method.POST, url,
             { response ->
                 Log.d("VOLLEY", response)
                 startActivity(Intent(this, DirectorsActivity::class.java))

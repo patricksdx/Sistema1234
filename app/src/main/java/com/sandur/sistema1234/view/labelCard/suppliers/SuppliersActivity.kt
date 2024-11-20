@@ -128,10 +128,10 @@ class SuppliersActivity : ComponentActivity() {
                                             modifier = Modifier
                                                 .padding(15.dp)
                                         ) {
-                                            Text(text = "${supplier.nombreempresa}", style = MaterialTheme.typography.titleLarge)
-                                            Text(text = "${supplier.nombrecontacto}")
-                                            Text(text = "${supplier.cargocontacto}")
-                                            Text(text = "${supplier.telefono}")
+                                            Text(text = supplier.nombreempresa, style = MaterialTheme.typography.titleLarge)
+                                            Text(text = supplier.nombrecontacto)
+                                            Text(text = supplier.cargocontacto)
+                                            Text(text = supplier.telefono)
                                             Text(text = "${supplier.ciudad} / ${supplier.pais}")
                                         }
                                     }
@@ -182,11 +182,11 @@ class SuppliersActivity : ComponentActivity() {
                 cargocontacto = jsonObject.optString("cargocontacto", "N/A"),
                 direccion = jsonObject.optString("direccion", "N/A"),
                 ciudad = jsonObject.optString("ciudad", "N/A"),
-                region = jsonObject.optString("region", null),
+                region = jsonObject.optString("region", ""),
                 codigopostal = jsonObject.optString("codigopostal", "N/A"),
                 pais = jsonObject.optString("pais", "N/A"),
                 telefono = jsonObject.optString("telefono", "N/A"),
-                fax = jsonObject.optString("fax", null)
+                fax = jsonObject.optString("fax", "")
             )
             suppliers.add(supplier)
         }
