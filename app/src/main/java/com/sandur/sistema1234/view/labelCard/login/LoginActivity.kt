@@ -54,8 +54,8 @@ class LoginActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
-            var user by remember { mutableStateOf("") }
-            var password by remember { mutableStateOf("") }
+            var user by remember { mutableStateOf("Anton") }
+            var password by remember { mutableStateOf("05023") }
             var checkBoxState by remember { mutableStateOf(false) }
             var loginError by remember { mutableStateOf("") }
 
